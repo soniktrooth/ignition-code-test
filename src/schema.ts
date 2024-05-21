@@ -6,19 +6,6 @@ const fixedPriceSchema = z.object({
   amount: z.number().nonnegative(),
 })
 
-const minMax = z
-  .number()
-  .nonnegative()
-  .refine(
-    (data) => {
-      console.log(data)
-      return data.min < data.max
-    },
-    {
-      message: 'Min must be less than max',
-    }
-  )
-
 const rangePriceSchema = z.object({
   type: z.literal('range'),
   amount: z
@@ -32,7 +19,6 @@ const rangePriceSchema = z.object({
       },
       {
         message: 'Min must be less than max',
-        // path: ['min', 'max'],
       }
     ),
 })

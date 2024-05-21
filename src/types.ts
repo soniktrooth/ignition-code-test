@@ -10,7 +10,7 @@ export type FormData = {
   label?: string
   email: string
   price?: {
-    price: 'range' | 'fixed'
+    type: 'range' | 'fixed'
     amount?: PriceAmount | number | null
   }
 }
@@ -32,7 +32,7 @@ export type RadioFieldProps = {
   items: RadioItem[]
   defaultValue?: string
   register: UseFormRegister<FormData>
-  error: FieldError | undefined
+  error?: FieldError | undefined
   children: React.ReactNode
 }
 
